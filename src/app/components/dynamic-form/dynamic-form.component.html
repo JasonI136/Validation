@@ -1,0 +1,35 @@
+<body>
+
+  <form [formGroup]="testForm" (ngSubmit)="onSubmit()">
+    <div>
+      <div class="mainForm">
+
+
+        <input type="checkbox" id="limit1" name="limit1" value="limit1" formControlName="_limit1">
+        <label for="limit2"> Limit weight to 800</label><br>
+
+      </div>
+
+      <hr>
+
+      <div *ngIf="show">
+        You are exceeding the limit
+      </div>
+
+      <div class="secondaryForm">
+        <label for="Weight">Weight: </label>
+        <input type="number" formControlName="_weight" max={{maxLength}}><br><br>
+
+        <label for="Length">Length: </label>
+        <input type="number" formControlName="_length"><br><br>
+
+        <label for="Height">Height: </label>
+        <input type="number" formControlName="_height"><br><br>
+      </div>
+
+    </div>
+
+    <button type="submit" [disabled]="!testForm.valid" >Submit</button>
+  </form>
+
+</body>
